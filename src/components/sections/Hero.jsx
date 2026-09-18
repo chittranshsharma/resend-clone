@@ -45,13 +45,13 @@ export default function Hero() {
               rgba(255, 255, 255, 0.035) 0%, rgba(255, 255, 255, 0.008) 35%, transparent 65%);
         }
 
-        /* ── Bottom fade into next section ── */
+        /* ── Bottom fade into next section (stays behind content) ── */
         .h::after {
           content: '';
           pointer-events: none;
           position: absolute; left:0; right:0; bottom:0;
-          height: 160px; z-index: 4;
-          background: linear-gradient(to bottom, transparent, #000000 90%);
+          height: 120px; z-index: 1;
+          background: linear-gradient(to bottom, transparent, #000000 95%);
         }
 
         /* ── Inner two-column layout ── */
@@ -231,6 +231,7 @@ export default function Hero() {
           align-self: stretch;
           width: 100%;
           min-height: 500px;
+          overflow: visible;
         }
 
         .h-cube-wrap {
@@ -243,6 +244,7 @@ export default function Hero() {
           justify-content: center;
           opacity: 0;
           animation: in 1.4s ease 0.2s forwards;
+          overflow: visible;
         }
 
         /* ── Responsive ── */
@@ -259,12 +261,12 @@ export default function Hero() {
           }
           .h-right {
             order: 1;
-            min-height: 280px;
+            min-height: 320px;
             align-self: auto;
           }
-          .h-video-wrap {
-            width: min(70vw, 320px);
-            min-height: 280px;
+          .h-cube-wrap, .h-video-wrap {
+            width: min(85vw, 380px);
+            min-height: 320px;
             transform: none;
           }
           .h-sub, .h-proof { text-align: center; }
@@ -274,9 +276,9 @@ export default function Hero() {
 
         @media (max-width: 480px) {
           .h-h1 { font-size: clamp(2.5rem, 11vw, 3rem); }
-          .h-video-wrap {
-            width: min(80vw, 240px);
-            min-height: 220px;
+          .h-cube-wrap, .h-video-wrap {
+            width: min(88vw, 290px);
+            min-height: 260px;
           }
           .h-inner { padding: 32px 18px 56px; }
         }
@@ -284,7 +286,7 @@ export default function Hero() {
         /* ── Curved horizon beam beneath cube ── */
         .h-horizon {
           position: absolute;
-          bottom: 22%;
+          bottom: 8%;
           right: -5%;
           width: 65vw;
           max-width: 900px;
@@ -292,7 +294,7 @@ export default function Hero() {
           background: linear-gradient(90deg,
             transparent 0%,
             rgba(255, 255, 255, 0.02) 20%,
-            rgba(255, 255, 255, 0.25) 60%,
+            rgba(255, 255, 255, 0.22) 60%,
             rgba(255, 255, 255, 0.05) 85%,
             transparent 100%
           );
@@ -302,11 +304,11 @@ export default function Hero() {
         }
         .h-horizon-glow {
           position: absolute;
-          bottom: 16%;
+          bottom: 4%;
           right: 6%;
           width: 440px;
           height: 120px;
-          background: radial-gradient(ellipse at 50% 50%, rgba(255, 255, 255, 0.04) 0%, transparent 70%);
+          background: radial-gradient(ellipse at 50% 50%, rgba(255, 255, 255, 0.035) 0%, transparent 70%);
           pointer-events: none;
           z-index: 1;
         }
