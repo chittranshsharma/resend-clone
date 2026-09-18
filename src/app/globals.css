@@ -250,7 +250,6 @@ a {
 
 /* White-surface buttons should always use dark foreground text/icons */
 .h-btn-solid,
-.h-btn-ghost,
 .nb-cta,
 .mob-btn-primary,
 .ft-btn-primary,
@@ -262,8 +261,6 @@ a {
 
 .h-btn-solid svg,
 .h-btn-solid svg *,
-.h-btn-ghost svg,
-.h-btn-ghost svg *,
 .nb-cta svg,
 .nb-cta svg *,
 .mob-btn-primary svg,

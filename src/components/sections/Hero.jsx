@@ -173,47 +173,33 @@ export default function Hero() {
 
         /* Secondary Ghost Button */
         .h-btn-ghost {
-          color: #f1f7fe;
-          background: rgba(255, 255, 255, 0.05);
-          border: 1px solid rgba(255, 255, 255, 0.12);
+          color: rgba(255, 255, 255, 0.9) !important;
+          -webkit-text-fill-color: rgba(255, 255, 255, 0.9) !important;
+          background: rgba(255, 255, 255, 0.06);
+          border: 1px solid rgba(255, 255, 255, 0.14);
           backdrop-filter: blur(12px);
+          box-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
         }
         .h-btn-ghost:hover {
-          color: #ffffff;
-          background: rgba(255, 255, 255, 0.09);
-          border-color: rgba(255, 255, 255, 0.25);
+          color: #ffffff !important;
+          -webkit-text-fill-color: #ffffff !important;
+          background: rgba(255, 255, 255, 0.11);
+          border-color: rgba(255, 255, 255, 0.28);
           transform: translateY(-1px);
         }
-        .h-btn-ghost svg { opacity: 0.6; transition: transform .15s, opacity .15s; }
-        .h-btn-ghost:hover svg { opacity: 1; transform: translateX(2px); }
-
-        /* ── Social proof ── */
-        .h-proof {
-          display: flex; align-items: center; gap: 10px;
-          margin-top: 32px;
-          opacity: 0;
-          animation: up 0.9s cubic-bezier(.16,1,.3,1) 0.44s forwards;
+        .h-btn-ghost svg,
+        .h-btn-ghost svg * {
+          color: rgba(255, 255, 255, 0.75) !important;
+          stroke: rgba(255, 255, 255, 0.75) !important;
+          opacity: 0.8;
+          transition: transform .15s, opacity .15s;
         }
-        .h-avatars { display: flex; }
-        .h-av {
-          width: 26px; height: 26px; border-radius: 50%;
-          border: 2px solid #080808;
-          background: rgba(255,255,255,0.11);
-          margin-left: -8px;
-          display: flex; align-items: center; justify-content: center;
-          font-size: 8.5px; font-weight: 600;
-          color: rgba(255,255,255,0.50);
-          letter-spacing: 0;
-        }
-        .h-av:first-child { margin-left: 0; }
-        .h-proof-txt {
-          font-size: 12.5px;
-          color: rgba(255,255,255,0.28);
-          letter-spacing: -0.01em;
-        }
-        .h-proof-txt strong {
-          color: rgba(255,255,255,0.52);
-          font-weight: 500;
+        .h-btn-ghost:hover svg,
+        .h-btn-ghost:hover svg * {
+          color: #ffffff !important;
+          stroke: #ffffff !important;
+          opacity: 1;
+          transform: translateX(2px);
         }
 
         /* ── Right: hero video ── */
@@ -351,17 +337,6 @@ export default function Hero() {
                   <path d="M10.75 8.75L14.25 12L10.75 15.25" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.8" />
                 </svg>
               </a>
-            </div>
-
-            <div className="h-proof">
-              <div className="h-avatars" aria-hidden="true">
-                {["AK", "SR", "MJ", "TL"].map((i) => (
-                  <div key={i} className="h-av">{i}</div>
-                ))}
-              </div>
-              <p className="h-proof-txt">
-                Trusted by <strong>50,000+</strong> developers worldwide
-              </p>
             </div>
           </div>
 
