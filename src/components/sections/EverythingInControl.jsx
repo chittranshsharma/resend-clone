@@ -174,21 +174,17 @@ export default function EverythingInControl() {
   return (
     <section ref={ref} className="eic-section">
 
-      {/* Spinning 3D chevron icon at top — SVG recreation of the resend.com 3D icon */}
-      <div className="eic-icon-wrap" style={{ opacity: visible?1:0, transition:"opacity 0.6s ease 0.05s" }}>
-        <svg viewBox="0 0 88 88" fill="none" width="88" height="88" style={{ display:"block" }}>
-          <defs>
-            <linearGradient id="eic-ig1" x1="0%" y1="0%" x2="100%" y2="100%">
-              <stop offset="0%" stopColor="rgba(255,255,255,0.18)"/>
-              <stop offset="100%" stopColor="rgba(255,255,255,0.04)"/>
-            </linearGradient>
-          </defs>
-          <rect x="2" y="2" width="84" height="84" rx="20" fill="url(#eic-ig1)" stroke="rgba(255,255,255,0.1)" strokeWidth="1.5"/>
-          {/* Three rising bars icon */}
-          <rect x="24" y="44" width="10" height="22" rx="2.5" fill="rgba(255,255,255,0.75)"/>
-          <rect x="40" y="32" width="10" height="34" rx="2.5" fill="rgba(255,255,255,0.85)"/>
-          <rect x="56" y="22" width="10" height="44" rx="2.5" fill="rgba(255,255,255,0.95)"/>
-        </svg>
+      {/* 3D Icon Video */}
+      <div className="eic-icon-wrap" style={{ opacity: visible ? 1 : 0, transition: "opacity 0.6s ease 0.05s" }}>
+        <video
+          src="/static/icon-videos/3d-control.mp4"
+          autoPlay
+          loop
+          muted
+          playsInline
+          className="eic-3d-video"
+          style={{ width: 88, height: 88, borderRadius: 20, objectFit: "contain", filter: "drop-shadow(0 12px 28px rgba(0,0,0,0.65))" }}
+        />
       </div>
 
       {/* Heading */}

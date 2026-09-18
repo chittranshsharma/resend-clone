@@ -9,35 +9,66 @@ const FILES = [
 ];
 
 const CODE_LINES = [
-  { n: 1, tokens: [["kw", "import"], ["pl", " "], ["pu", "{"], [" Body, Button, Container, Head, Heading,"], ["pu", "}"], ["pl", " "], ["kw", "from"], ["pl", " "], ["st", "'@react-email/components'"], [";", "pu"]] },
-  { n: 2, tokens: [["kw", "import"], ["pl", " "], ["kw", "*"], ["pl", " "], ["kw", "as"], ["pl", " "], ["ty", "React"], ["pl", " "], ["kw", "from"], ["pl", " "], ["st", "'react'"], [";", "pu"]] },
-  { n: 3, tokens: [[""]] },
-  { n: 4, tokens: [["kw", "const"], ["pl", " "], ["ty", "WelcomeEmail"], ["pl", " "], ["pu", "="], ["pl", " "], ["pu", "("], ["pu", "{"]] },
-  { n: 5, tokens: [["pl", "  username "], ["pu", "="], ["pl", " "], ["st", "'Steve'"], ["pu", ","]] },
-  { n: 6, tokens: [["pl", "  company "], ["pu", "="], ["pl", " "], ["st", "'ACME'"], ["pu", ","]] },
-  { n: 7, tokens: [["pu", "}"], ["pu", ":"], ["pl", " "], ["ty", "WelcomeEmailProps"], ["pu", ")"], ["pl", " "], ["pu", "=>"], ["pl", " "], ["pu", "{"]] },
-  { n: 8, tokens: [["pl", "  "], ["kw", "const"], ["pl", " previewText "], ["pu", "="], ["pl", " "], ["st", "`Welcome to ${company}, ${username}!`"], ["pu", ";"]] },
-  { n: 9, tokens: [[""]] },
-  { n: 10, tokens: [["pl", "  "], ["kw", "return"], ["pl", " "], ["pu", "("]] },
-  { n: 11, tokens: [["pl", "    "], ["tg", "<Html>"]] },
-  { n: 12, tokens: [["pl", "      "], ["tg", "<Head />"],] },
-  { n: 13, tokens: [["pl", "      "], ["tg", "<Preview>"], ["pu", "{"], ["pl", "previewText"], ["pu", "}"], ["tg", "</Preview>"]] },
-  { n: 14, tokens: [["pl", "      "], ["tg", "<Body"], ["at", ' className='], ["st", '"bg-white my-auto mx-auto"'], ["tg", ">"]] },
-  { n: 15, tokens: [["pl", "        "], ["tg", "<Container"], ["at", ' className='], ["st", '"my-10 mx-auto p-5 w-[465px]"'], ["tg", ">"]] },
-  { n: 16, tokens: [["pl", "          "], ["tg", "<Heading"], ["at", ' className='], ["st", '"text-2xl font-normal text-center"'], ["tg", ">"]] },
-  { n: 17, tokens: [["pl", "            Welcome to "], ["tg", "<strong>"], ["pu", "{"], ["pl", "company"], ["pu", "}"], ["tg", "</strong>"], [", "], ["pu", "{"], ["pl", "username"], ["pu", "}"], [", !"]] },
-  { n: 18, tokens: [["pl", "          "], ["tg", "</Heading>"]] },
+  { n: 1, tokens: [["kw", "import"], ["pl", " "], ["pu", "{"], ["pl", " Body, Button, Column, Container, Head, Heading, Hr, Ht"]] },
+  { n: 2, tokens: [["kw", "import"], ["pl", " * "], ["kw", "as"], ["pl", " "], ["ty", "React"], ["pl", " "], ["kw", "from"], ["pl", " "], ["st", "'react'"], ["pu", ";"]] },
+  { n: 3, tokens: [["pl", ""]] },
+  { n: 4, tokens: [["kw", "const"], ["pl", " "], ["ty", "WelcomeEmail"], ["pl", " = ("], ["pu", "{"]] },
+  { n: 5, tokens: [["pl", "  username = "], ["st", "'Steve'"], ["pu", ","]] },
+  { n: 6, tokens: [["pl", "  company = "], ["st", "'ACME'"], ["pu", ","]] },
+  { n: 7, tokens: [["pu", "}"], ["pl", ": "], ["ty", "WelcomeEmailProps"], ["pl", ") => "], ["pu", "{"]] },
+  { n: 8, tokens: [["pl", "  "], ["kw", "const"], ["pl", " previewText = "], ["st", "`Welcome to ${company}, ${username}!`"], ["pu", ";"]] },
+  { n: 9, tokens: [["pl", ""]] },
+  { n: 10, tokens: [["pl", "  "], ["kw", "return"], ["pl", " ("]] },
+  { n: 11, tokens: [["pl", "    <"], ["tg", "Html"], ["pl", ">"]] },
+  { n: 12, tokens: [["pl", "      <"], ["tg", "Head"], ["pl", " />"]] },
+  { n: 13, tokens: [["pl", "      <"], ["tg", "Preview"], ["pl", ">{previewText}</"], ["tg", "Preview"], ["pl", ">"]] },
+  { n: 14, tokens: [["pl", "      <"], ["tg", "Tailwind"], ["pl", ">"]] },
+  { n: 15, tokens: [["pl", "      <"], ["tg", "Body"], ["pl", " "], ["at", "className"], ["pl", "="], ["st", '"bg-white my-auto mx-auto font-sans"'], ["pl", ">"]] },
+  { n: 16, tokens: [["pl", "        <"], ["tg", "Container"], ["pl", " "], ["at", "className"], ["pl", "="], ["st", '"my-10 mx-auto p-5 w-[465px]"'], ["pl", ">"]] },
+  { n: 17, tokens: [["pl", "          <"], ["tg", "Section"], ["pl", " "], ["at", "className"], ["pl", "="], ["st", '"mt-8"'], ["pl", ">"]] },
+  { n: 18, tokens: [["pl", "            <"], ["tg", "Img"]] },
+  { n: 19, tokens: [["pl", "              "], ["at", "src"], ["pl", "="], ["st", '`${baseUrl}/static/example-logo.png`']] },
+  { n: 20, tokens: [["pl", "              "], ["at", "width"], ["pl", "="], ["st", '"80"']] },
+  { n: 21, tokens: [["pl", "              "], ["at", "height"], ["pl", "="], ["st", '"80"']] },
+  { n: 22, tokens: [["pl", "              "], ["at", "alt"], ["pl", "="], ["st", '"Logo Example"']] },
+  { n: 23, tokens: [["pl", "              "], ["at", "className"], ["pl", "="], ["st", '"my-0 mx-auto"']] },
+  { n: 24, tokens: [["pl", "            />"]] },
+  { n: 25, tokens: [["pl", "          </"], ["tg", "Section"], ["pl", ">"]] },
+  { n: 26, tokens: [["pl", "          <"], ["tg", "Heading"], ["pl", " "], ["at", "className"], ["pl", "="], ["st", '"text-2xl font-normal text-center"'], ["pl", ">"]] },
+  { n: 27, tokens: [["pl", "            Welcome to <"], ["tg", "strong"], ["pl", ">{company}</"], ["tg", "strong"], ["pl", ">, {username}!"]] },
+  { n: 28, tokens: [["pl", "          </"], ["tg", "Heading"], ["pl", ">"]] },
+  { n: 29, tokens: [["pl", "          <"], ["tg", "Text"], ["pl", " "], ["at", "className"], ["pl", "="], ["st", '"text-sm"'], ["pl", ">"]] },
+  { n: 30, tokens: [["pl", "            Hello {username},"]] },
+  { n: 31, tokens: [["pl", "          </"], ["tg", "Text"], ["pl", ">"]] },
+  { n: 32, tokens: [["pl", "          <"], ["tg", "Text"], ["pl", " "], ["at", "className"], ["pl", "="], ["st", '"text-sm"'], ["pl", ">"]] },
+  { n: 33, tokens: [["pl", "            We're excited to have you onboard at <"], ["tg", "strong"], ["pl", ">{company}</"], ["tg", "strong"], ["pl", ">"]] },
+  { n: 34, tokens: [["pl", "          </"], ["tg", "Text"], ["pl", ">"]] },
+  { n: 35, tokens: [["pl", "          <"], ["tg", "Section"], ["pl", " "], ["at", "className"], ["pl", "="], ["st", '"text-center mt-[32px] mb-[32px]"'], ["pl", ">"]] },
+  { n: 36, tokens: [["pl", "            <"], ["tg", "Button"]] },
+  { n: 37, tokens: [["pl", "              "], ["at", "px"], ["pl", "={20}"]] },
+  { n: 38, tokens: [["pl", "              "], ["at", "py"], ["pl", "={12}"]] },
+  { n: 39, tokens: [["pl", "              "], ["at", "className"], ["pl", "="], ["st", '"bg-[#00A3FF] rounded-sm text-white text-sm"'], ["pl", ">"]] },
 ];
 
-const TOKEN_COLOR = { kw: "#6C6C6C", st: "#ABABAB", pu: "#A0A0A0", ty: "#6C6C6C", tg: "#6C6C6C", at: "#ABABAB", pl: "#f8f8f8" };
+const TOKEN_COLOR = {
+  kw: "#70707a",
+  st: "#d1d5db",
+  pu: "#9ca3af",
+  ty: "#93c5fd",
+  tg: "#9ca3af",
+  at: "#d1d5db",
+  pl: "#e5e7eb",
+};
 
 function CodeLine({ tokens, lineNum }) {
   return (
-    <div style={{ display: "flex", lineHeight: "1.65" }}>
-      <span style={{ display: "inline-block", width: "2.25rem", textAlign: "right", paddingRight: "1rem", color: "#464A4D", flexShrink: 0, userSelect: "none" }}>{lineNum}</span>
-      <span>
+    <div style={{ display: "flex", lineHeight: "1.65", minHeight: "1.65em" }}>
+      <span style={{ display: "inline-block", width: "2.5rem", textAlign: "right", paddingRight: "1.25rem", color: "#3e4247", flexShrink: 0, userSelect: "none", fontSize: "12px" }}>
+        {lineNum}
+      </span>
+      <span style={{ whiteSpace: "pre", fontFamily: "var(--font-mono, monospace)" }}>
         {tokens.map(([type, text], i) => (
-          <span key={i} style={{ color: TOKEN_COLOR[type] || "#f8f8f8", fontFamily: "ui-monospace, monospace" }}>{text}</span>
+          <span key={i} style={{ color: TOKEN_COLOR[type] || "#e5e7eb" }}>{text}</span>
         ))}
       </span>
     </div>
@@ -46,19 +77,35 @@ function CodeLine({ tokens, lineNum }) {
 
 function EmailRendered() {
   return (
-    <div style={{ fontFamily: "Helvetica, Arial, sans-serif", fontSize: 14, padding: "1.5rem", backgroundColor: "#070707", minHeight: "100%", color: "#fff", borderRadius: 16, border: "1px solid rgba(255,255,255,0.08)" }}>
-      <div style={{ maxWidth: 380, margin: "0 auto" }}>
-        <h2 style={{ fontSize: 22, fontWeight: 400, textAlign: "center", padding: 0, margin: "24px 0", color: "#fff" }}>
-          Welcome to <strong>ACME</strong>, user!
-        </h2>
-        <p style={{ margin: "12px 0", fontSize: 13, color: "#a1a4a5" }}>Hello Steve,</p>
-        <p style={{ margin: "12px 0", fontSize: 13, color: "#a1a4a5" }}>We&apos;re excited to have you onboard at <strong>ACME</strong>. We hope you enjoy your journey with us.</p>
-        <div style={{ textAlign: "center", margin: "28px 0" }}>
-          <a href="#" style={{ display: "inline-block", background: "#ffffff", color: "#000000", borderRadius: 6, padding: "10px 22px", textDecoration: "none", fontSize: 13, fontWeight: 500, boxShadow: "0 1px 2px rgba(0,0,0,0.4)" }}>
-            Get Started
-          </a>
+    <div className="re-preview-inner">
+      {/* Cyan Concentric Circle Logo */}
+      <div className="re-preview-logo">
+        <div className="re-cyan-circle-outer">
+          <div className="re-cyan-circle-middle">
+            <div className="re-cyan-circle-inner" />
+          </div>
         </div>
-        <p style={{ margin: "12px 0", fontSize: 13, color: "#a1a4a5" }}>Cheers,<br /><strong style={{ color: "#fff" }}>The ACME Team</strong></p>
+      </div>
+
+      <h3 className="re-preview-heading">
+        Welcome to <strong>ACME</strong>, user!
+      </h3>
+
+      <p className="re-preview-text">Hello Steve,</p>
+
+      <p className="re-preview-text">
+        We&apos;re excited to have you onboard at ACME. We hope you enjoy your journey with us. If you have any questions or need assistance, feel free to reach out.
+      </p>
+
+      <div className="re-preview-btn-wrap">
+        <a href="#" className="re-preview-btn">
+          Get Started
+        </a>
+      </div>
+
+      <div className="re-preview-signoff">
+        <p className="re-preview-text">Cheers,</p>
+        <p className="re-preview-text">The ACME Team</p>
       </div>
     </div>
   );
@@ -67,6 +114,8 @@ function EmailRendered() {
 export default function ReactEmailSection() {
   const [visible, setVisible] = useState(false);
   const [activeFile, setActiveFile] = useState(0);
+  const [device, setDevice] = useState("desktop");
+  const [theme, setTheme] = useState("dark");
   const ref = useRef(null);
 
   useEffect(() => {
@@ -79,33 +128,114 @@ export default function ReactEmailSection() {
 
   return (
     <section ref={ref} className="re-section">
-      {/* Orb */}
+      {/* ── 3D Icon Video ── */}
       <div className="re-orb-row">
-        <div className="re-orb" />
+        <video
+          src="/static/icon-videos/3d-react.mp4"
+          autoPlay
+          loop
+          muted
+          playsInline
+          className="re-3d-video"
+        />
       </div>
 
+      {/* ── Heading ── */}
       <h2 className="re-title" style={{ opacity: visible ? 1 : 0, transform: visible ? "none" : "translateY(20px)", transition: "opacity 0.6s ease, transform 0.6s ease" }}>
         Develop emails using React
       </h2>
+
+      {/* ── Subtitle ── */}
       <p className="re-subtitle" style={{ opacity: visible ? 1 : 0, transform: visible ? "none" : "translateY(16px)", transition: "opacity 0.6s ease 0.1s, transform 0.6s ease 0.1s" }}>
         Create beautiful templates without having to deal with &lt;table&gt; layouts and HTML.<br className="re-br" />
         Powered by react-email, our open source component library.
       </p>
 
-      {/* CTA buttons */}
+      {/* ── CTA buttons ── */}
       <div className="re-ctas" style={{ opacity: visible ? 1 : 0, transition: "opacity 0.6s ease 0.18s" }}>
-        <a href="https://resend.com/signup" className="re-btn-primary">Get Started</a>
-        <a href="https://react.email/docs" className="re-btn-ghost">Check the Docs</a>
+        <a href="https://resend.com/signup" className="re-btn-primary">
+          Get started
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+            <path d="M9 18l6-6-6-6" />
+          </svg>
+        </a>
+        <a href="https://react.email/docs" className="re-btn-ghost">
+          Check the docs
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+            <path d="M9 18l6-6-6-6" />
+          </svg>
+        </a>
       </div>
 
-      {/* Code panel */}
+      {/* ── Code / Preview window ── */}
       <div className="re-panel" style={{ opacity: visible ? 1 : 0, transform: visible ? "none" : "translateY(28px)", transition: "opacity 0.65s ease 0.25s, transform 0.65s ease 0.25s" }}>
-        {/* Mac traffic lights */}
+        {/* Mac traffic lights + controls */}
         <div className="re-panel-header">
           <div className="re-dots">
             <div className="re-dot re-dot-red" />
             <div className="re-dot re-dot-yellow" />
             <div className="re-dot re-dot-green" />
+          </div>
+
+          <div className="re-header-controls">
+            {/* Desktop / Mobile toggle */}
+            <div className="re-toggle-group">
+              <button
+                className={`re-toggle-btn${device === "desktop" ? " active" : ""}`}
+                onClick={() => setDevice("desktop")}
+                type="button"
+                title="Desktop view"
+              >
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                  <rect x="2" y="3" width="20" height="14" rx="2" />
+                  <line x1="8" y1="21" x2="16" y2="21" />
+                  <line x1="12" y1="17" x2="12" y2="21" />
+                </svg>
+              </button>
+              <button
+                className={`re-toggle-btn${device === "mobile" ? " active" : ""}`}
+                onClick={() => setDevice("mobile")}
+                type="button"
+                title="Mobile view"
+              >
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                  <rect x="5" y="2" width="14" height="20" rx="2" />
+                  <line x1="12" y1="18" x2="12.01" y2="18" strokeWidth="2.5" />
+                </svg>
+              </button>
+            </div>
+
+            {/* Dark / Light toggle */}
+            <div className="re-toggle-group">
+              <button
+                className={`re-toggle-btn${theme === "dark" ? " active" : ""}`}
+                onClick={() => setTheme("dark")}
+                type="button"
+                title="Dark theme"
+              >
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                  <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
+                </svg>
+              </button>
+              <button
+                className={`re-toggle-btn${theme === "light" ? " active" : ""}`}
+                onClick={() => setTheme("light")}
+                type="button"
+                title="Light theme"
+              >
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                  <circle cx="12" cy="12" r="5" />
+                  <line x1="12" y1="1" x2="12" y2="3" />
+                  <line x1="12" y1="21" x2="12" y2="23" />
+                  <line x1="4.22" y1="4.22" x2="5.64" y2="5.64" />
+                  <line x1="18.36" y1="18.36" x2="19.78" y2="19.78" />
+                  <line x1="1" y1="12" x2="3" y2="12" />
+                  <line x1="21" y1="12" x2="23" y2="12" />
+                  <line x1="4.22" y1="19.78" x2="5.64" y2="18.36" />
+                  <line x1="18.36" y1="5.64" x2="19.78" y2="4.22" />
+                </svg>
+              </button>
+            </div>
           </div>
         </div>
 
@@ -119,11 +249,10 @@ export default function ReactEmailSection() {
                 onClick={() => setActiveFile(i)}
                 type="button"
               >
-                <svg fill="none" height="18" viewBox="0 0 24 24" width="18" style={{ flexShrink: 0, opacity: 0.5 }}>
-                  <rect fill="currentColor" fillOpacity="0.25" height="16" rx="3" width="16" x="4" y="4" />
-                  <path clipRule="evenodd" d="M13.9 16.73V18.3c.25.13.56.23.9.29.35.07.72.1 1.09.1.37 0 .73-.04 1.07-.11.34-.07.63-.19.88-.35.25-.16.45-.37.6-.64.15-.27.22-.6.22-1-.02-.28-.06-.53-.15-.75-.08-.22-.2-.41-.36-.58-.16-.17-.35-.32-.58-.44-.22-.13-.47-.25-.77-.37-.2-.08-.39-.17-.56-.25a3.4 3.4 0 0 1-.43-.26l-.27-.27c-.06-.09-.09-.19-.09-.3 0-.1.03-.2.08-.28.05-.09.13-.16.23-.22.1-.06.22-.11.36-.14.14-.03.3-.05.47-.05.13 0 .27.01.41.03.14.02.29.05.43.1.15.04.29.1.43.17.14.07.26.14.38.22V11.7c-.24-.09-.5-.16-.78-.2-.28-.04-.6-.06-.97-.06-.37 0-.73.04-1.06.12a2.9 2.9 0 0 0-.87.35c-.25.17-.45.38-.59.64-.14.26-.21.57-.21.93 0 .47.13.86.4 1.19.27.32.68.57 1.22.79.22.09.42.18.6.27.18.09.33.18.45.27.12.09.21.19.27.29.06.1.09.22.09.36 0 .1-.02.2-.07.29-.05.09-.13.17-.23.23-.1.06-.22.11-.37.14-.15.03-.32.05-.5.05-.34 0-.68-.06-1.01-.17a3.1 3.1 0 0 1-.93-.55Zm-2.63-3.85h2v-1.28H7.69v1.28h1.99V18.6h1.59v-5.72Z" fill="currentColor" fillRule="evenodd" />
-                </svg>
-                {f.name}
+                <span className={`re-ts-badge${i === activeFile ? " re-ts-badge--active" : ""}`}>
+                  TS
+                </span>
+                <span className="re-file-name">{f.name}</span>
               </button>
             ))}
           </aside>
@@ -138,7 +267,7 @@ export default function ReactEmailSection() {
           </div>
 
           {/* Email preview */}
-          <div className="re-preview-pane">
+          <div className={`re-preview-pane ${theme === "light" ? "re-preview--light" : "re-preview--dark"}`}>
             <EmailRendered />
           </div>
         </div>
@@ -146,50 +275,221 @@ export default function ReactEmailSection() {
 
       <style>{`
         .re-section, .re-section * { font-family: var(--font-sans, 'Inter', sans-serif); box-sizing: border-box; }
-        .re-section { max-width: 80rem; margin: 0 auto; padding: 5rem 1.5rem 4rem; text-align: center; }
-        .re-orb-row { display: flex; justify-content: center; margin-bottom: 1.25rem; }
-        .re-orb {
-          width: 80px; height: 80px; border-radius: 50%;
-          background: radial-gradient(circle at 40% 35%, rgba(56,189,248,0.55) 0%, rgba(14,165,233,0.3) 40%, rgba(2,132,199,0.1) 100%);
-          box-shadow: 0 0 40px 8px rgba(56,189,248,0.15), 0 0 0 1px rgba(56,189,248,0.12) inset;
-          animation: reOrbFloat 4s ease-in-out infinite;
+        .re-section { max-width: 78rem; margin: 0 auto; padding: 6rem 1.5rem 5rem; text-align: center; }
+
+        /* ── 3D Icon Video ── */
+        .re-orb-row { display: flex; justify-content: center; margin-bottom: 1.75rem; }
+        .re-3d-video {
+          width: 88px; height: 88px;
+          border-radius: 20px;
+          object-fit: contain;
+          filter: drop-shadow(0 12px 28px rgba(0,0,0,0.65));
         }
-        .re-title { font-family: var(--font-domaine), Georgia, serif; font-feature-settings: 'ss01', 'ss04', 'ss11'; font-size: clamp(2.4rem, 4.8vw, 3.8rem); font-weight: 400; letter-spacing: -0.02em; line-height: 1.12; color: #fff; margin: 0 0 1rem; background: linear-gradient(to bottom, #fff 50%, rgba(255,255,255,0.65) 100%); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; }
-        .re-subtitle { font-size: clamp(0.9375rem, 1.3vw, 1.0625rem); color: rgba(255,255,255,0.45); line-height: 1.6; margin: 0 auto 2rem; max-width: 56ch; letter-spacing: -0.01em; }
+
+        /* ── Heading ── */
+        .re-title {
+          font-family: var(--font-sans), 'Inter', -apple-system, sans-serif;
+          font-size: clamp(2.4rem, 4.8vw, 3.8rem);
+          font-weight: 400;
+          letter-spacing: -0.025em;
+          line-height: 1.12;
+          color: #fff;
+          margin: 0 0 1rem;
+        }
+
+        /* ── Subtitle ── */
+        .re-subtitle {
+          font-family: var(--font-sans), 'Inter', -apple-system, sans-serif;
+          font-size: clamp(0.9375rem, 1.3vw, 1.0625rem);
+          color: rgba(255,255,255,0.48);
+          line-height: 1.65;
+          margin: 0 auto 2.25rem;
+          max-width: 58ch;
+          letter-spacing: -0.01em;
+        }
         .re-br { display: none; } @media (min-width: 640px) { .re-br { display: block; } }
-        .re-ctas { display: flex; align-items: center; justify-content: center; gap: 0.75rem; flex-wrap: wrap; margin-bottom: 2.5rem; }
-        .re-btn-primary { display: inline-flex; align-items: center; height: 3rem; padding: 0 1.25rem; border-radius: 0.75rem; font-size: 1rem; font-weight: 600; font-family: inherit; text-decoration: none; color: #fff; border: 2px solid rgba(255,255,255,0.08); background: linear-gradient(104deg, rgba(253,253,253,0.05) 5%, rgba(240,240,228,0.10) 100%); transition: background 0.2s, color 0.2s, transform 0.15s; }
-        .re-btn-primary:hover { background: rgba(255,255,255,0.9); color: #000; transform: translateY(-1px); }
-        .re-btn-ghost { display: inline-flex; align-items: center; height: 3rem; padding: 0 1.25rem; border-radius: 0.75rem; font-size: 1rem; font-weight: 600; font-family: inherit; text-decoration: none; color: rgba(255,255,255,0.8); border: 1px solid transparent; background: transparent; transition: color 0.18s; }
-        .re-btn-ghost:hover { color: rgba(255,255,255,0.95); }
 
-        /* Panel */
-        .re-panel { border: 1px solid rgba(255,255,255,0.1); border-radius: 1.5rem; overflow: hidden; text-align: left; background: #090909; }
-        .re-panel-header { display: flex; align-items: center; height: 3rem; padding: 0 1rem; border-bottom: 1px solid rgba(255,255,255,0.08); }
-        .re-dots { display: flex; gap: 0.375rem; }
+        /* ── CTA buttons ── */
+        .re-ctas { display: flex; align-items: center; justify-content: center; gap: 0.85rem; flex-wrap: wrap; margin-bottom: 3.5rem; }
+        .re-btn-primary {
+          display: inline-flex; align-items: center; gap: 6px;
+          height: 2.375rem; padding: 0 1rem;
+          border-radius: 0.625rem;
+          font-size: 0.875rem; font-weight: 500; font-family: inherit;
+          text-decoration: none; color: #fff;
+          border: 1px solid rgba(255,255,255,0.12);
+          background: rgba(255,255,255,0.06);
+          box-shadow: 0 1px 2px rgba(0,0,0,0.3);
+          transition: background 0.18s, border-color 0.18s;
+        }
+        .re-btn-primary:hover { background: rgba(255,255,255,0.12); border-color: rgba(255,255,255,0.22); }
+        .re-btn-ghost {
+          display: inline-flex; align-items: center; gap: 6px;
+          height: 2.375rem; padding: 0 0.75rem;
+          border-radius: 0.625rem;
+          font-size: 0.875rem; font-weight: 500; font-family: inherit;
+          text-decoration: none; color: rgba(255,255,255,0.55);
+          background: transparent;
+          transition: color 0.18s;
+        }
+        .re-btn-ghost:hover { color: rgba(255,255,255,0.9); }
+
+        /* ── Code Panel ── */
+        .re-panel {
+          border: 1px solid rgba(255,255,255,0.09);
+          border-radius: 12px;
+          overflow: hidden;
+          text-align: left;
+          background: #000000;
+          box-shadow: 0 24px 64px rgba(0,0,0,0.7);
+        }
+        .re-panel-header {
+          display: flex; align-items: center; justify-content: space-between;
+          height: 2.75rem; padding: 0 1rem;
+          border-bottom: 1px solid rgba(255,255,255,0.07);
+          background: #050505;
+        }
+        .re-dots { display: flex; gap: 0.4rem; }
         .re-dot { width: 10px; height: 10px; border-radius: 50%; }
-        .re-dot-red    { background: #ff5f57; }
+        .re-dot-red    { background: #ff5f56; }
         .re-dot-yellow { background: #febc2e; }
-        .re-dot-green  { background: #28c840; }
-        .re-panel-body { display: flex; min-height: 0; }
+        .re-dot-green  { background: #27c93f; }
 
-        /* Sidebar */
-        .re-sidebar { width: 12.5rem; flex-shrink: 0; border-right: 1px solid rgba(255,255,255,0.07); padding: 0.5rem; display: flex; flex-direction: column; gap: 0.125rem; overflow: auto; }
-        .re-file-btn { display: flex; align-items: center; gap: 0.375rem; padding: 0.375rem 0.5rem; border-radius: 0.375rem; font-size: 0.75rem; font-family: var(--font-mono, monospace); color: rgba(255,255,255,0.5); background: transparent; border: none; cursor: pointer; text-align: left; white-space: nowrap; transition: background 0.12s, color 0.12s; width: 100%; }
-        .re-file-btn:hover { background: rgba(255,255,255,0.05); color: rgba(255,255,255,0.8); }
-        .re-file-btn--active { color: #60a5fa; }
+        .re-header-controls { display: flex; align-items: center; gap: 12px; }
+        .re-toggle-group {
+          display: flex; align-items: center;
+          border: 1px solid rgba(255,255,255,0.1);
+          border-radius: 6px;
+          overflow: hidden;
+          background: rgba(255,255,255,0.03);
+        }
+        .re-toggle-btn {
+          display: flex; align-items: center; justify-content: center;
+          width: 28px; height: 24px;
+          border: none; background: transparent;
+          color: rgba(255,255,255,0.4);
+          cursor: pointer;
+          transition: all 0.14s;
+        }
+        .re-toggle-btn:hover { color: #fff; background: rgba(255,255,255,0.06); }
+        .re-toggle-btn.active { color: #fff; background: rgba(255,255,255,0.12); }
 
-        /* Code */
-        .re-code-pane { flex: 1; overflow: auto; padding: 1rem 0; background: transparent; min-width: 0; max-height: 400px; }
-        .re-code { margin: 0; padding: 0; font-size: 0.75rem; background: transparent; overflow: visible; color: #f8f8f8; }
+        .re-panel-body { display: flex; min-height: 440px; }
 
-        /* Preview */
-        .re-preview-pane { width: 38%; flex-shrink: 0; border-left: 1px solid rgba(255,255,255,0.07); background: #fff; overflow: auto; max-height: 400px; }
+        /* ── Sidebar ── */
+        .re-sidebar {
+          width: 13rem; flex-shrink: 0;
+          border-right: 1px solid rgba(255,255,255,0.07);
+          padding: 0.75rem 0.5rem;
+          display: flex; flex-direction: column; gap: 2px;
+          background: #020202;
+        }
+        .re-file-btn {
+          display: flex; align-items: center; gap: 8px;
+          padding: 6px 10px; border-radius: 6px;
+          font-size: 13px; font-family: var(--font-mono, monospace);
+          color: rgba(255,255,255,0.45);
+          background: transparent; border: none; cursor: pointer;
+          text-align: left; white-space: nowrap;
+          transition: background 0.12s, color 0.12s;
+          width: 100%;
+        }
+        .re-file-btn:hover { background: rgba(255,255,255,0.04); color: rgba(255,255,255,0.8); }
+        .re-file-btn--active { color: #38bdf8; background: rgba(56,189,248,0.06); }
+        .re-ts-badge {
+          font-size: 10px; font-weight: 700;
+          padding: 1px 4px; border-radius: 3px;
+          background: rgba(255,255,255,0.08); color: rgba(255,255,255,0.5);
+        }
+        .re-ts-badge--active { background: #0284c7; color: #fff; }
 
-        @media (max-width: 900px) { .re-preview-pane { display: none; } .re-sidebar { display: none; } }
-        @media (max-width: 640px) { .re-section { padding: 3rem 1rem 3rem; } .re-panel { border-radius: 1rem; } }
+        /* ── Code pane ── */
+        .re-code-pane {
+          flex: 1; overflow: auto; padding: 1.25rem 0.5rem;
+          background: #020202; min-width: 0; max-height: 520px;
+        }
+        .re-code {
+          margin: 0; padding: 0; font-size: 12px;
+          background: transparent; overflow: visible;
+        }
+
+        /* ── Preview pane ── */
+        .re-preview-pane {
+          width: 42%; flex-shrink: 0;
+          border-left: 1px solid rgba(255,255,255,0.07);
+          overflow: auto; max-height: 520px;
+          display: flex; align-items: center; justify-content: center;
+          padding: 2.5rem 1.5rem;
+        }
+        .re-preview--dark  { background: #000000; color: #ffffff; }
+        .re-preview--light { background: #ffffff; color: #000000; }
+
+        .re-preview-inner {
+          max-width: 320px; width: 100%;
+          text-align: left;
+        }
+
+        /* Cyan Concentric Circle */
+        .re-preview-logo {
+          display: flex; justify-content: center;
+          margin-bottom: 1.75rem;
+        }
+        .re-cyan-circle-outer {
+          width: 52px; height: 52px; border-radius: 50%;
+          background: rgba(0, 200, 255, 0.15);
+          display: flex; align-items: center; justify-content: center;
+        }
+        .re-cyan-circle-middle {
+          width: 38px; height: 38px; border-radius: 50%;
+          background: #00A3FF;
+          display: flex; align-items: center; justify-content: center;
+        }
+        .re-cyan-circle-inner {
+          width: 14px; height: 14px; border-radius: 50%;
+          background: #ffffff;
+        }
+
+        .re-preview-heading {
+          font-size: 17px; font-weight: 400; text-align: center;
+          margin: 0 0 1.5rem; color: inherit; line-height: 1.35;
+        }
+        .re-preview-heading strong { font-weight: 700; }
+
+        .re-preview-text {
+          font-size: 12.5px; line-height: 1.6;
+          color: rgba(255,255,255,0.7);
+          margin: 0 0 1rem;
+        }
+        .re-preview--light .re-preview-text { color: rgba(0,0,0,0.7); }
+
+        .re-preview-btn-wrap {
+          margin: 1.5rem 0 1.75rem;
+        }
+        .re-preview-btn {
+          display: inline-block;
+          background: #00A3FF;
+          color: #ffffff !important;
+          font-size: 13px; font-weight: 600;
+          padding: 8px 18px; border-radius: 5px;
+          text-decoration: none;
+          box-shadow: 0 2px 8px rgba(0,163,255,0.3);
+          transition: opacity 0.15s;
+        }
+        .re-preview-btn:hover { opacity: 0.9; }
+
+        .re-preview-signoff {
+          margin-top: 1rem;
+        }
+
+        @media (max-width: 960px) {
+          .re-preview-pane { display: none; }
+          .re-sidebar { width: 10rem; }
+        }
+        @media (max-width: 640px) {
+          .re-section { padding: 3rem 1rem 3rem; }
+          .re-sidebar { display: none; }
+        }
       `}</style>
     </section>
   );
 }
-

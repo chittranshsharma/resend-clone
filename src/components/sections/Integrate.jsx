@@ -304,26 +304,19 @@ function IconCheck({ size = 15 }) {
 }
 
 /* ─────────────────────────────────────────────────────────────
-   ANIMATED ORB icon
+   3D ICON VIDEO
 ───────────────────────────────────────────────────────────── */
-function AnimatedOrb() {
+function Integrate3DIcon() {
   return (
-    <div className="int-orb-wrap">
-      <div className="int-orb-glow-a" />
-      <div className="int-orb-glow-b" />
-      <div className="int-orb-shell">
-        <div className="int-orb-inner">
-          {/* Envelope */}
-          <svg width="54" height="54" viewBox="0 0 54 54" fill="none" className="int-orb-icon">
-            <rect x="7" y="14" width="40" height="26" rx="3.5" stroke="rgba(255,255,255,0.55)" strokeWidth="1.5" />
-            <path d="M7 18.5L27 32L47 18.5" stroke="rgba(255,255,255,0.45)" strokeWidth="1.5" strokeLinecap="round" />
-          </svg>
-          {/* Orbit ring */}
-          <div className="int-orb-ring" />
-        </div>
-      </div>
-      {/* Orbiting dot */}
-      <div className="int-orb-satellite" />
+    <div className="int-video-wrap">
+      <video
+        src="/static/icon-videos/3d-integrate.mp4"
+        autoPlay
+        loop
+        muted
+        playsInline
+        className="int-3d-video"
+      />
     </div>
   );
 }
@@ -363,20 +356,20 @@ export default function Integrate() {
   return (
     <section className="int-section">
 
-      {/* ── Animated orb ── */}
+      {/* ── 3D Icon Video ── */}
       <div className="int-orb-container">
-        <AnimatedOrb />
+        <Integrate3DIcon />
       </div>
 
       {/* ── Headline ── */}
       <h2 className="int-title">
         Integrate{" "}
-        <span className="int-title-gold">in 10 minutes</span>
+        <span className="int-title-orange">this afternoon</span>
       </h2>
 
       {/* ── Subtitle ── */}
       <p className="int-subtitle">
-        Developer friendly libraries available for Node.js, Python, Ruby, Go, PHP, Elixir, Rust, Java, and REST.
+        A simple, elegant interface so you can start sending emails in minutes. It fits right into your code with SDKs for your favorite programming languages.
       </p>
 
       {/* ── Content area ── */}
@@ -510,146 +503,53 @@ export default function Integrate() {
         }
 
         /* ──────────────────────────────────────────────────────
-           ORB ANIMATION
+           3D ICON VIDEO
         ────────────────────────────────────────────────────── */
-        .int-orb-container {
-          margin-bottom: 1.75rem;
-        }
-
-        .int-orb-wrap {
-          position: relative;
-          width: 120px;
-          height: 120px;
+        .int-video-wrap {
           display: flex;
           align-items: center;
           justify-content: center;
+          margin-bottom: 2rem;
         }
 
-        /* Slow breathing glow blobs */
-        .int-orb-glow-a,
-        .int-orb-glow-b {
-          position: absolute;
-          border-radius: 50%;
-          filter: blur(28px);
-          animation: orbPulse 5s ease-in-out infinite;
-        }
-        .int-orb-glow-a {
-          width: 90px; height: 90px;
-          background: radial-gradient(circle, rgba(255, 197, 61, 0.2) 0%, transparent 70%);
-          top: 8px; left: 8px;
-          animation-delay: 0s;
-        }
-        .int-orb-glow-b {
-          width: 70px; height: 70px;
-          background: radial-gradient(circle, rgba(238, 137, 18, 0.15) 0%, transparent 70%);
-          bottom: 10px; right: 10px;
-          animation-delay: -2.5s;
-        }
-        @keyframes orbPulse {
-          0%, 100% { opacity: 0.6; transform: scale(1); }
-          50%       { opacity: 1;   transform: scale(1.18); }
-        }
-
-        /* Main shell sphere */
-        .int-orb-shell {
-          position: relative;
-          width: 88px; height: 88px;
-          border-radius: 50%;
-          background: radial-gradient(circle at 38% 32%,
-            rgba(255, 255, 255, 0.18) 0%,
-            rgba(28, 25, 22, 0.9) 55%,
-            rgba(8, 8, 8, 0.98) 100%
-          );
-          border: 1px solid rgba(255, 255, 255, 0.14);
-          box-shadow:
-            0 0 0 1px rgba(255,255,255,0.06) inset,
-            0 20px 60px rgba(0, 0, 0, 0.8),
-            0 4px 16px rgba(0, 0, 0, 0.6);
-          animation: orbFloat 5.5s ease-in-out infinite;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          z-index: 1;
-        }
-        @keyframes orbFloat {
-          0%, 100% { transform: translateY(0) rotate(0deg); }
-          33%       { transform: translateY(-7px) rotate(1.5deg); }
-          66%       { transform: translateY(-4px) rotate(-1deg); }
-        }
-
-        .int-orb-inner {
-          position: relative;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-        }
-
-        .int-orb-icon {
-          position: relative;
-          z-index: 2;
-          filter: drop-shadow(0 0 8px rgba(139,92,246,0.5));
-        }
-
-        /* Rotating ring inside sphere */
-        .int-orb-ring {
-          position: absolute;
-          inset: -18px;
-          border-radius: 50%;
-          border: 1px dashed rgba(139,92,246,0.2);
-          animation: orbRingSpin 12s linear infinite;
-        }
-        @keyframes orbRingSpin {
-          to { transform: rotate(360deg); }
-        }
-
-        /* Orbiting satellite dot */
-        .int-orb-satellite {
-          position: absolute;
-          top: 13px; left: 50%;
-          width: 6px; height: 6px;
-          border-radius: 50%;
-          background: #a78bfa;
-          box-shadow: 0 0 8px 2px rgba(167,139,250,0.7);
-          transform-origin: 0 47px;
-          animation: orbSpin 6s linear infinite;
-          z-index: 2;
-        }
-        @keyframes orbSpin {
-          to { transform: rotate(360deg); }
+        .int-3d-video {
+          width: 88px;
+          height: 88px;
+          border-radius: 20px;
+          object-fit: contain;
+          filter: drop-shadow(0 12px 28px rgba(0,0,0,0.65));
         }
 
         /* ──────────────────────────────────────────────────────
            HEADLINE
         ────────────────────────────────────────────────────── */
         .int-title {
-          font-family: var(--font-domaine), Georgia, serif;
-          font-feature-settings: 'ss01', 'ss04', 'ss11';
-          font-size: clamp(2.5rem, 5.5vw, 3.8rem);
+          font-family: var(--font-sans), 'Inter', -apple-system, sans-serif;
+          font-size: clamp(2.4rem, 5vw, 3.6rem);
           font-weight: 400;
-          letter-spacing: -0.025em;
+          letter-spacing: -0.03em;
           line-height: 1.15;
-          color: #f1f5f9;
+          color: #ffffff;
           text-align: center;
-          margin: 0 0 0.875rem;
+          margin: 0 0 1rem;
         }
-        .int-title-gold {
-          background: linear-gradient(130deg, #FFFF92 0%, #f59e0b 55%, #EE8912 100%);
-          -webkit-background-clip: text;
-          background-clip: text;
-          color: transparent;
+        .int-title-orange {
+          color: #F77C00;
         }
 
         /* ──────────────────────────────────────────────────────
            SUBTITLE
         ────────────────────────────────────────────────────── */
         .int-subtitle {
-          font-size: clamp(0.9375rem, 1.4vw, 1.0625rem);
+          font-family: var(--font-sans), 'Inter', -apple-system, sans-serif;
+          font-size: clamp(0.9375rem, 1.3vw, 1.0625rem);
           font-weight: 400;
-          line-height: 1.7;
+          line-height: 1.65;
           color: rgba(255,255,255,0.48);
           text-align: center;
-          max-width: 520px;
+          max-width: 580px;
           margin: 0 0 3rem;
+          letter-spacing: -0.01em;
           letter-spacing: -0.01em;
         }
 

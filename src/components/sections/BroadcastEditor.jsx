@@ -218,34 +218,57 @@ function StylesPanel({ open, onClose, styles, onChange }) {
 function HeaderImageBlock() {
   return (
     <div className="be-header-image">
-      {/* Dark geometric pattern matching screenshot */}
-      <svg width="100%" height="100%" viewBox="0 0 680 220" preserveAspectRatio="xMidYMid slice" style={{ position: "absolute", inset: 0 }}>
+      <svg width="100%" height="100%" viewBox="0 0 680 200" preserveAspectRatio="xMidYMid slice" style={{ position: "absolute", inset: 0 }}>
         <defs>
-          <radialGradient id="hg1" cx="30%" cy="60%" r="60%">
-            <stop offset="0%" stopColor="#2d2d3a" />
-            <stop offset="100%" stopColor="#0a0a0a" />
+          <linearGradient id="bg-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stopColor="#08080a" />
+            <stop offset="50%" stopColor="#121216" />
+            <stop offset="100%" stopColor="#060608" />
+          </linearGradient>
+          <linearGradient id="ribbon1" x1="0%" y1="0%" x2="100%" y2="0%">
+            <stop offset="0%" stopColor="#303036" />
+            <stop offset="50%" stopColor="#606068" />
+            <stop offset="100%" stopColor="#1c1c20" />
+          </linearGradient>
+          <linearGradient id="ribbon2" x1="0%" y1="0%" x2="100%" y2="0%">
+            <stop offset="0%" stopColor="#1a1a1e" />
+            <stop offset="50%" stopColor="#484852" />
+            <stop offset="100%" stopColor="#141416" />
+          </linearGradient>
+          <radialGradient id="badge-grad" cx="40%" cy="35%" r="65%">
+            <stop offset="0%" stopColor="#44444a" />
+            <stop offset="50%" stopColor="#202024" />
+            <stop offset="100%" stopColor="#0e0e12" />
           </radialGradient>
-          <linearGradient id="hg2" x1="0%" y1="0%" x2="100%" y2="100%">
-            <stop offset="0%" stopColor="#1a1a2e" />
-            <stop offset="50%" stopColor="#16213e" />
-            <stop offset="100%" stopColor="#0d0d16" />
+          <linearGradient id="chevron-grad" x1="0%" y1="0%" x2="100%" y2="0%">
+            <stop offset="0%" stopColor="#e8e8ee" />
+            <stop offset="100%" stopColor="#888892" />
           </linearGradient>
         </defs>
-        <rect width="680" height="220" fill="url(#hg2)" />
-        {/* Diagonal blade shapes like the screenshot */}
-        {[-60, -30, 0, 30, 60, 90].map((x, i) => (
-          <polygon key={i}
-            points={`${200 + x},0 ${260 + x},0 ${180 + x},220 ${120 + x},220`}
-            fill={`rgba(255,255,255,${0.018 + i * 0.006})`}
-          />
-        ))}
-        {/* Circle button shape */}
-        <circle cx="530" cy="110" r="52" fill="rgba(255,255,255,0.07)" stroke="rgba(255,255,255,0.12)" strokeWidth="1" />
-        <circle cx="530" cy="110" r="44" fill="rgba(255,255,255,0.05)" />
-        {/* Skip-forward icon */}
-        <polygon points="516,92 516,128 534,110" fill="rgba(255,255,255,0.65)" />
-        <polygon points="534,92 534,128 552,110" fill="rgba(255,255,255,0.65)" />
-        <rect x="553" y="92" width="5" height="36" rx="2" fill="rgba(255,255,255,0.65)" />
+
+        {/* Background */}
+        <rect width="680" height="200" fill="url(#bg-grad)" />
+
+        {/* 3D pleated ribbon shapes matching screenshot */}
+        <g opacity="0.85">
+          <polygon points="40,200 90,0 150,0 90,200" fill="url(#ribbon1)" />
+          <polygon points="90,200 150,0 210,0 160,200" fill="url(#ribbon2)" />
+          <polygon points="160,200 210,0 270,0 220,200" fill="url(#ribbon1)" />
+          <polygon points="220,200 270,0 330,0 280,200" fill="url(#ribbon2)" />
+          <polygon points="280,200 330,0 380,0 320,200" fill="url(#ribbon1)" />
+        </g>
+
+        {/* Circular badge on right */}
+        <g transform="translate(420, 30)">
+          <circle cx="70" cy="70" r="54" fill="url(#badge-grad)" stroke="rgba(255,255,255,0.14)" strokeWidth="1" />
+          <circle cx="70" cy="70" r="48" fill="#141418" opacity="0.5" />
+          {/* 3 metallic forward chevrons */}
+          <g fill="url(#chevron-grad)">
+            <path d="M42,50 Q48,50 56,66 Q58,70 56,74 Q48,90 42,90 Q38,90 38,84 L38,56 Q38,50 42,50 Z" />
+            <path d="M58,50 Q64,50 72,66 Q74,70 72,74 Q64,90 58,90 Q54,90 54,84 L54,56 Q54,50 58,50 Z" />
+            <path d="M74,50 Q80,50 88,66 Q90,70 88,74 Q80,90 74,90 Q70,90 70,84 L70,56 Q70,50 74,50 Z" />
+          </g>
+        </g>
       </svg>
       <div className="be-header-overlay" />
     </div>
@@ -364,64 +387,30 @@ export default function BroadcastEditor() {
           overflow: visible;
         }
 
-        /* ── Icon orb ── */
+        /* ── Icon video ── */
         .be-icon-wrap {
           display: flex; justify-content: center;
-          margin-bottom: 1.5rem;
+          margin-bottom: 1.75rem;
         }
-        .be-icon-box {
-          width: 76px; height: 76px;
-          border-radius: 18px;
-          background: radial-gradient(circle at 38% 32%,
-            rgba(255,255,255,0.14) 0%,
-            rgba(32,32,36,0.85)  45%,
-            rgba(10,10,12,0.95)   100%);
-          box-shadow:
-            0 0 0 1px rgba(255,255,255,0.08) inset,
-            0 8px 32px rgba(0,0,0,0.6),
-            0 2px 8px rgba(0,0,0,0.5);
-          display: flex; align-items: center; justify-content: center;
-          animation: beIconPulse 3.8s ease-in-out infinite;
-          position: relative; overflow: hidden;
-        }
-        .be-icon-box::after {
-          content: '';
-          position: absolute; inset: 0;
-          border-radius: inherit;
-          background: linear-gradient(135deg, rgba(255,255,255,0.12) 0%, transparent 60%);
-        }
-        /* the 3-ring icon inside */
-        .be-icon-rings {
-          width: 40px; height: 40px; position: relative;
-        }
-        .be-icon-ring {
-          position: absolute; border-radius: 50%;
-          border: 2px solid rgba(255,255,255,0.55);
-        }
-        .be-icon-ring-1 { inset: 0; }
-        .be-icon-ring-2 { inset: 8px; border-color: rgba(255,255,255,0.38); }
-        .be-icon-ring-3 { inset: 16px; border-color: rgba(255,255,255,0.55); background: rgba(255,255,255,0.1); }
-        @keyframes beIconPulse {
-          0%,100% { transform: scale(1);    box-shadow: 0 0 0 1px rgba(255,255,255,0.08) inset, 0 8px 32px rgba(0,0,0,0.6), 0 2px 8px rgba(0,0,0,0.5); }
-          50%     { transform: scale(1.05); box-shadow: 0 0 0 1px rgba(255,255,255,0.12) inset, 0 8px 40px rgba(0,0,0,0.75), 0 2px 8px rgba(0,0,0,0.5); }
+        .be-3d-video {
+          width: 88px; height: 88px;
+          border-radius: 20px;
+          object-fit: contain;
+          filter: drop-shadow(0 12px 28px rgba(0,0,0,0.65));
         }
 
         /* ── Heading + subtitle ── */
         .be-heading {
-          font-family: var(--font-domaine), Georgia, serif;
-          font-feature-settings: 'ss01', 'ss04', 'ss11';
+          font-family: var(--font-sans), 'Inter', -apple-system, sans-serif;
           font-size: clamp(2.4rem, 4.8vw, 3.8rem);
           font-weight: 400;
-          letter-spacing: -0.02em;
+          letter-spacing: -0.025em;
           line-height: 1.12;
           color: #fff;
           margin: 0 0 0.85rem;
-          background: linear-gradient(180deg, #ffffff 40%, rgba(255,255,255,0.6) 100%);
-          -webkit-background-clip: text;
-          background-clip: text;
-          -webkit-text-fill-color: transparent;
         }
         .be-subtitle {
+          font-family: var(--font-sans), 'Inter', -apple-system, sans-serif;
           font-size: clamp(0.95rem, 1.4vw, 1.0625rem);
           color: rgba(255,255,255,0.45);
           line-height: 1.65;
@@ -787,15 +776,16 @@ export default function BroadcastEditor() {
         }
       `}</style>
 
-      {/* ── Icon orb ── */}
+      {/* ── 3D Icon Video ── */}
       <div className="be-icon-wrap" style={anim(0)}>
-        <div className="be-icon-box">
-          <div className="be-icon-rings">
-            <div className="be-icon-ring be-icon-ring-1" />
-            <div className="be-icon-ring be-icon-ring-2" />
-            <div className="be-icon-ring be-icon-ring-3" />
-          </div>
-        </div>
+        <video
+          src="/static/icon-videos/3d-broadcast.mp4"
+          autoPlay
+          loop
+          muted
+          playsInline
+          className="be-3d-video"
+        />
       </div>
 
       {/* ── Heading — Inter 400 ── */}
@@ -828,36 +818,17 @@ export default function BroadcastEditor() {
                 className={`be-styles-trigger${stylesOpen ? " open" : ""}`}
                 onClick={() => setStylesOpen(o => !o)}
               >
-                <IconPaint /> Styles
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M12 2l2.4 7.2L22 12l-7.6 2.8L12 22l-2.4-7.2L2 12l7.6-2.8L12 2z" />
+                </svg>
+                Styles
               </button>
-              <div className="be-fmt-bar">
-                {[
-                  { icon: <IconBold />, cmd: "bold", title: "Bold (⌘B)" },
-                  { icon: <IconItalic />, cmd: "italic", title: "Italic (⌘I)" },
-                  { icon: <IconUnderline />, cmd: "underline", title: "Underline (⌘U)" },
-                  { icon: <IconLink />, cmd: "link", title: "Link" },
-                  { icon: <IconImage />, cmd: "image", title: "Image" },
-                  { icon: <IconAlignLeft />, cmd: "align", title: "Align" },
-                ].map(({ icon, cmd, title }) => (
-                  <button key={cmd} className="be-fmt-btn" title={title}
-                    onMouseDown={e => {
-                      e.preventDefault();
-                      if (cmd === "link") { const u = prompt("URL"); if (u) fmt("createLink", u); }
-                      else if (cmd === "image" || cmd === "align") { }
-                      else fmt(cmd);
-                    }}>
-                    {icon}
-                  </button>
-                ))}
-                <span style={{ margin: "0 2px" }}><IconDivider /></span>
-                <span className="be-wc">{wordCount}w</span>
-              </div>
             </div>
 
             <span className="be-toolbar-title">Weekly Acme Newsletter</span>
 
             <div className="be-toolbar-right">
-              <span className="be-ago"><IconClock /> {saved}</span>
+              <span className="be-ago"><IconClock /> a day ago</span>
               <button className="be-btn-test">Test</button>
               <button className="be-btn-send">Send</button>
             </div>
