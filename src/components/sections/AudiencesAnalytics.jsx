@@ -290,7 +290,7 @@ export default function AudiencesAnalytics() {
           font-family: 'Inter', system-ui, sans-serif;
         }
         .aa-root {
-          background: #050505;
+          background: #000000;
           color: #fff;
           max-width: 80rem;
           margin: 0 auto;
@@ -300,10 +300,12 @@ export default function AudiencesAnalytics() {
 
         /* ── Heading ── */
         .aa-heading {
-          font-size: clamp(2.4rem, 5vw, 3.5rem);
+          font-family: var(--font-domaine), Georgia, serif;
+          font-feature-settings: 'ss01', 'ss04', 'ss11';
+          font-size: clamp(2.4rem, 5vw, 3.8rem);
           font-weight: 400;
-          letter-spacing: -0.04em;
-          line-height: 1.14;
+          letter-spacing: -0.02em;
+          line-height: 1.12;
           color: #fff;
           margin: 0 0 1rem;
         }

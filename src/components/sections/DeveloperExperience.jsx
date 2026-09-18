@@ -529,10 +529,12 @@ export default function DeveloperExperience() {
 
         /* ─ Headline ─ */
         .de-title {
-          font-size: clamp(2.5rem, 5vw, 3.5rem);
+          font-family: var(--font-domaine), Georgia, serif;
+          font-feature-settings: 'ss01', 'ss04', 'ss11';
+          font-size: clamp(2.5rem, 5vw, 3.8rem);
           font-weight: 400;
-          letter-spacing: -0.04em;
-          line-height: 1.18;
+          letter-spacing: -0.02em;
+          line-height: 1.12;
           color: #fff;
           margin: 0 0 1rem;
         }

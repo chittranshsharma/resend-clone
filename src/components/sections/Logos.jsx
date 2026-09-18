@@ -234,40 +234,20 @@ export default function Logos() {
         Companies of all sizes trust Resend to deliver their most important emails.
       </p>
 
-      {/* ── Row 1 marquee (6 logos) ── */}
+      {/* ── 6-Column Logo Grid matching Resend ── */}
       <div
-        className="lg-marquee-wrapper"
+        className="lg-grid"
         style={{
           opacity: inView ? 1 : 0,
           transform: inView ? "none" : "translateY(16px)",
           transition: "opacity 0.75s ease 0.15s, transform 0.75s ease 0.15s",
         }}
       >
-        <div className="lg-marquee lg-marquee--left">
-          {[...row1, ...row1].map((logo, i) => (
-            <div key={`r1-${i}`} className="lg-logo-wrap" title={logo.name}>
-              {logo.svg}
-            </div>
-          ))}
-        </div>
-      </div>
-
-      {/* ── Row 2 marquee (5 logos, scroll opposite direction) ── */}
-      <div
-        className="lg-marquee-wrapper"
-        style={{
-          opacity: inView ? 1 : 0,
-          transform: inView ? "none" : "translateY(16px)",
-          transition: "opacity 0.75s ease 0.28s, transform 0.75s ease 0.28s",
-        }}
-      >
-        <div className="lg-marquee lg-marquee--right">
-          {[...row2, ...row2, ...row2].map((logo, i) => (
-            <div key={`r2-${i}`} className="lg-logo-wrap" title={logo.name}>
-              {logo.svg}
-            </div>
-          ))}
-        </div>
+        {row1.map((logo) => (
+          <div key={logo.name} className="lg-logo-cell" title={logo.name}>
+            {logo.svg}
+          </div>
+        ))}
       </div>
 
       <style>{`
@@ -316,56 +296,45 @@ export default function Logos() {
           z-index: 1;
         }
 
-        /* ------- Marquee container ------- */
-        .lg-marquee-wrapper {
-          width: 100%;
-          overflow: hidden;
-          /* edge fade */
-          -webkit-mask-image: linear-gradient(
-            to right,
-            transparent 0%,
-            black 10%,
-            black 90%,
-            transparent 100%
-          );
-          mask-image: linear-gradient(
-            to right,
-            transparent 0%,
-            black 10%,
-            black 90%,
-            transparent 100%
-          );
-          margin-bottom: 0;
+        /* ------- Logo Grid ------- */
+        .lg-grid {
+          display: grid;
+          grid-template-columns: repeat(6, 1fr);
+          gap: 2rem 1.5rem;
+          width: 90%;
+          max-width: 72rem;
+          margin: 0 auto;
+          align-items: center;
+          justify-items: center;
+          position: relative;
+          z-index: 1;
         }
-        .lg-marquee-wrapper + .lg-marquee-wrapper { margin-top: 0; }
 
-        /* ------- Marquee track ------- */
-        .lg-marquee {
+        .lg-logo-cell {
           display: flex;
           align-items: center;
-          width: max-content;
-          animation-timing-function: linear;
-          animation-iteration-count: infinite;
-        }
-        .lg-marquee--left {
-          animation: lg-scroll-left 30s linear infinite;
-        }
-        .lg-marquee--right {
-          animation: lg-scroll-right 38s linear infinite;
+          justify-content: center;
+          opacity: 0.65;
+          transition: opacity 0.2s ease, transform 0.2s ease;
+          width: 100%;
+          height: 3.5rem;
         }
 
-        @keyframes lg-scroll-left {
-          0%   { transform: translateX(0); }
-          100% { transform: translateX(-50%); }
-        }
-        @keyframes lg-scroll-right {
-          0%   { transform: translateX(-33.333%); }
-          100% { transform: translateX(0); }
+        .lg-logo-cell:hover {
+          opacity: 1;
+          transform: translateY(-1px);
         }
 
-        /* Pause on hover */
-        .lg-marquee-wrapper:hover .lg-marquee {
-          animation-play-state: paused;
+        @media (max-width: 900px) {
+          .lg-grid {
+            grid-template-columns: repeat(3, 1fr);
+          }
+        }
+
+        @media (max-width: 540px) {
+          .lg-grid {
+            grid-template-columns: repeat(2, 1fr);
+          }
         }
 
         /* ------- Logo cell ------- */

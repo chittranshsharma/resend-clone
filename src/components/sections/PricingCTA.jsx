@@ -53,7 +53,8 @@ export default function PricingCTA() {
         }
 
         .cta-final-title {
-          font-family: "domaine", "Domaine Display", Georgia, "Times New Roman", serif;
+          font-family: var(--font-domaine), Georgia, serif;
+          font-feature-settings: 'ss01', 'ss04', 'ss11';
           font-size: clamp(3rem, 6.5vw, 5.2rem);
           font-weight: 400;
           line-height: 1.05;

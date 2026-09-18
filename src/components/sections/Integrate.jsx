@@ -371,13 +371,12 @@ export default function Integrate() {
       {/* ── Headline ── */}
       <h2 className="int-title">
         Integrate{" "}
-        <span className="int-title-gold">this morning</span>
+        <span className="int-title-gold">in 10 minutes</span>
       </h2>
 
       {/* ── Subtitle ── */}
       <p className="int-subtitle">
-        A simple, elegant interface so you can start sending emails in minutes.
-        It fits right into your code with SDKs for your favorite programming languages.
+        Developer friendly libraries available for Node.js, Python, Ruby, Go, PHP, Elixir, Rust, Java, and REST.
       </p>
 
       {/* ── Content area ── */}
@@ -623,9 +622,11 @@ export default function Integrate() {
            HEADLINE
         ────────────────────────────────────────────────────── */
         .int-title {
-          font-size: clamp(2.5rem, 5.5vw, 3.5rem);
+          font-family: var(--font-domaine), Georgia, serif;
+          font-feature-settings: 'ss01', 'ss04', 'ss11';
+          font-size: clamp(2.5rem, 5.5vw, 3.8rem);
           font-weight: 400;
-          letter-spacing: -0.045em;
+          letter-spacing: -0.025em;
           line-height: 1.15;
           color: #f1f5f9;
           text-align: center;

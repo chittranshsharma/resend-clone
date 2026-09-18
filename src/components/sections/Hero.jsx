@@ -75,57 +75,51 @@ export default function Hero() {
           padding-right: 32px;
         }
 
-        /* ── Pill ── */
+        /* ── Pill with rainbow gradient border ── */
         .h-pill-wrap {
           margin-bottom: 32px;
           opacity: 0;
           animation: up 0.7s cubic-bezier(.16,1,.3,1) 0.05s forwards;
         }
-        .h-pill {
-          display: inline-flex; align-items: center;
-          border-radius: 9999px; padding: 1px;
-          background: rgba(255, 255, 255, 0.12);
-          border: 1px solid rgba(255, 255, 255, 0.1);
+        .h-pill-rainbow {
+          display: inline-flex;
+          align-items: center;
+          padding: 1px;
+          border-radius: 9999px;
+          background: linear-gradient(193.2deg, rgba(2, 252, 239, 0.44) 0%, rgba(255, 181, 43, 0.44) 50%, rgba(160, 43, 254, 0.44) 100%);
           text-decoration: none;
-          cursor: pointer;
-          transition: border-color 0.2s, background 0.2s;
+          transition: background 0.2s ease;
         }
-        .h-pill:hover {
-          background: rgba(255, 255, 255, 0.18);
-          border-color: rgba(255, 255, 255, 0.2);
+        .h-pill-rainbow:hover {
+          background: linear-gradient(193.2deg, rgba(2, 252, 239, 0.7) 0%, rgba(255, 181, 43, 0.7) 50%, rgba(160, 43, 254, 0.7) 100%);
         }
         .h-pill-in {
-          display: inline-flex; align-items: center; gap: 8px;
+          display: inline-flex; align-items: center; gap: 6px;
           background: #000000;
-          border-radius: 9999px; padding: 6px 14px 6px 10px;
+          border-radius: 9999px; padding: 6px 14px 6px 12px;
           font-size: 13px; font-weight: 500;
-          color: rgba(255,255,255,0.7);
+          color: rgba(255,255,255,0.9);
           white-space: nowrap; line-height: 1; letter-spacing:-0.01em;
           transition: color .15s;
         }
-        .h-pill:hover .h-pill-in { color: #ffffff; }
-        .h-pill-dot {
-          width: 7px; height: 7px; border-radius: 50%;
-          background: #44ffa4;
-          box-shadow: 0 0 9px rgba(68,255,164,0.8);
-          flex-shrink: 0;
-        }
+        .h-pill-rainbow:hover .h-pill-in { color: #ffffff; }
         .h-pill-arr {
-          opacity: 0.5; transition: transform .15s, opacity .15s;
+          opacity: 0.7; transition: transform .15s, opacity .15s;
         }
-        .h-pill:hover .h-pill-arr { opacity: 0.9; transform: translateX(2px); }
+        .h-pill-rainbow:hover .h-pill-arr { opacity: 1; transform: translateX(2px); }
 
-        /* ── Headline ── */
+        /* ── Headline in Domaine Display Serif ── */
         .h-h1 {
-          font-family: var(--font-sans), 'Inter', system-ui, sans-serif;
-          font-size: clamp(3.5rem, 6.4vw, 5.8rem);
-          font-weight: 600;
-          line-height: 1.02;
-          letter-spacing: -0.035em;
+          font-family: var(--font-domaine), Georgia, serif;
+          font-feature-settings: 'ss01', 'ss04', 'ss11';
+          font-size: clamp(3.8rem, 6.5vw, 6.2rem);
+          font-weight: 400;
+          line-height: 1.0;
+          letter-spacing: -0.015em;
           margin: 0;
           background: linear-gradient(175deg,
-            #ffffff 0%, #ffffff 55%,
-            rgba(255,255,255,0.6) 100%);
+            #ffffff 0%, #ffffff 60%,
+            rgba(255,255,255,0.65) 100%);
           -webkit-background-clip: text; background-clip: text;
           -webkit-text-fill-color: transparent;
           opacity: 0;
@@ -325,10 +319,9 @@ export default function Hero() {
           <div className="h-left">
 
             <div className="h-pill-wrap">
-              <a href="#" className="h-pill" aria-label="See what's new in Launch Week 6">
+              <a href="https://resend.com/forward" className="h-pill-rainbow" aria-label="Join us at Resend Forward">
                 <span className="h-pill-in">
-                  <span className="h-pill-dot" aria-hidden="true" />
-                  Launch Week 6 is here
+                  Join us at Resend Forward
                   <svg className="h-pill-arr" width="13" height="13" viewBox="0 0 24 24" fill="none" aria-hidden="true">
                     <path d="M10.75 8.75L14.25 12L10.75 15.25" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.8" />
                   </svg>
@@ -346,13 +339,13 @@ export default function Hero() {
             </p>
 
             <div className="h-ctas">
-              <a href="#" className="h-btn h-btn-solid">
-                Get Started
+              <a href="/signup" className="h-btn h-btn-solid">
+                Get started
                 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" aria-hidden="true">
                   <path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" />
                 </svg>
               </a>
-              <a href="#" className="h-btn h-btn-ghost">
+              <a href="/docs" className="h-btn h-btn-ghost">
                 Documentation
                 <svg width="13" height="13" viewBox="0 0 24 24" fill="none" aria-hidden="true">
                   <path d="M10.75 8.75L14.25 12L10.75 15.25" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.8" />

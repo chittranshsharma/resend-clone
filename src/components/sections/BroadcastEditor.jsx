@@ -407,12 +407,13 @@ export default function BroadcastEditor() {
         }
 
         /* ── Heading + subtitle ── */
-        /* Inter 400 for heading as requested */
         .be-heading {
-          font-size: clamp(2.1rem, 4.5vw, 3.2rem);
+          font-family: var(--font-domaine), Georgia, serif;
+          font-feature-settings: 'ss01', 'ss04', 'ss11';
+          font-size: clamp(2.4rem, 4.8vw, 3.8rem);
           font-weight: 400;
-          letter-spacing: -0.04em;
-          line-height: 1.15;
+          letter-spacing: -0.02em;
+          line-height: 1.12;
           color: #fff;
           margin: 0 0 0.85rem;
           background: linear-gradient(180deg, #ffffff 40%, rgba(255,255,255,0.6) 100%);

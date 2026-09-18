@@ -169,15 +169,17 @@ export default function Deliverability() {
         }
 
         .dl-title {
-          font-size: clamp(2.5rem, 5vw, 3.5rem);
+          font-family: var(--font-domaine), Georgia, serif;
+          font-feature-settings: 'ss01', 'ss04', 'ss11';
+          font-size: clamp(2.5rem, 5vw, 3.8rem);
           font-weight: 400;
-          letter-spacing: -0.04em;
-          line-height: 1.18;
+          letter-spacing: -0.02em;
+          line-height: 1.12;
           color: #fff;
           margin: 0 0 3rem;
           max-width: 14ch;
           position: relative; z-index: 2;
-          background: linear-gradient(to bottom, #fff 50%, rgba(255,255,255,0.55) 100%);
+          background: linear-gradient(to bottom, #fff 50%, rgba(255,255,255,0.65) 100%);
           -webkit-background-clip: text; background-clip: text;
           -webkit-text-fill-color: transparent;
         }

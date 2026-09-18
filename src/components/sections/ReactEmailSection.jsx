@@ -154,8 +154,7 @@ export default function ReactEmailSection() {
           box-shadow: 0 0 40px 8px rgba(56,189,248,0.15), 0 0 0 1px rgba(56,189,248,0.12) inset;
           animation: reOrbFloat 4s ease-in-out infinite;
         }
-        @keyframes reOrbFloat { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-6px); } }
-        .re-title { font-size: clamp(2.25rem, 4.5vw, 3.25rem); font-weight: 400; letter-spacing: -0.04em; line-height: 1.18; color: #fff; margin: 0 0 1rem; background: linear-gradient(to bottom, #fff 50%, rgba(255,255,255,0.55) 100%); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; }
+        .re-title { font-family: var(--font-domaine), Georgia, serif; font-feature-settings: 'ss01', 'ss04', 'ss11'; font-size: clamp(2.4rem, 4.8vw, 3.8rem); font-weight: 400; letter-spacing: -0.02em; line-height: 1.12; color: #fff; margin: 0 0 1rem; background: linear-gradient(to bottom, #fff 50%, rgba(255,255,255,0.65) 100%); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; }
         .re-subtitle { font-size: clamp(0.9375rem, 1.3vw, 1.0625rem); color: rgba(255,255,255,0.45); line-height: 1.6; margin: 0 auto 2rem; max-width: 56ch; letter-spacing: -0.01em; }
         .re-br { display: none; } @media (min-width: 640px) { .re-br { display: block; } }
         .re-ctas { display: flex; align-items: center; justify-content: center; gap: 0.75rem; flex-wrap: wrap; margin-bottom: 2.5rem; }

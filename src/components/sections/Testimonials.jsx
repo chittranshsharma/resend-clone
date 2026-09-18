@@ -288,9 +288,11 @@ export function TestimonialsSection() {
       >
         <h2
           style={{
-            fontSize: "clamp(2rem, 5vw, 3.5rem)",
+            fontFamily: "var(--font-domaine), Georgia, serif",
+            fontFeatureSettings: "'ss01', 'ss04', 'ss11'",
+            fontSize: "clamp(2.4rem, 5vw, 3.8rem)",
             fontWeight: 400,
-            letterSpacing: "-0.04em",
+            letterSpacing: "-0.02em",
             lineHeight: "1.12",
             margin: "0 0 20px",
             color: "#fff",

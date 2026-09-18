@@ -268,15 +268,16 @@ export default function EverythingInControl() {
 
         /* ── Title ── */
         .eic-title {
-          font-size: clamp(2.25rem,4vw,3.25rem);
+          font-family: var(--font-domaine), Georgia, serif;
+          font-feature-settings: 'ss01', 'ss04', 'ss11';
+          font-size: clamp(2.4rem, 4.5vw, 3.8rem);
           font-weight: 400;
-          letter-spacing: -0.045em;
-          line-height: 1.18;
+          letter-spacing: -0.02em;
+          line-height: 1.12;
           color: #fff;
           text-align: center;
           margin: 0 auto 1rem;
           max-width: 20ch;
-          font-family: var(--font-sans);
         }
 
         /* ── Subtitle ── */
